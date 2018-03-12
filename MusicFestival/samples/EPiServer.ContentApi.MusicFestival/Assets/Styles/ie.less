@@ -1,0 +1,44 @@
+@import "common/variables";
+@import (reference) "utils/utils-size.less";
+@import (reference) "utils/utils-offset.less";
+
+/**
+ * IE.less
+ * This file will be rendered in IE 8 and older.
+ * IE8 doesn't support media queries so we need to output all code that is within @media {} statements.
+ */
+
+/**
+ * Utils-size
+ * Uncomment the same classes that you are using in utils-size.less.
+ */
+//.u-size(~'');  // Base
+.u-size(@prefixXSmall); // X-Small and wider
+.u-size(@prefixSmall); // Small and wider
+.u-size(@prefixMedium); // Medium and wider
+.u-size(@prefixLarge); // Large and wider
+//.u-size(@prefixXLarge); // X-Large and wider
+
+/**
+ * Utils-offset
+ * Uncomment the same classes that you are using in utils-offset.less.
+ */
+
+//.u-offset(~'', ~'before', ~'left'); // Base
+//.u-offset(@prefixXSmall, ~'before', ~'left'); // X-Small and wider
+//.u-offset(@prefixSmall, ~'before', ~'left'); // Small and wider
+//.u-offset(@prefixMedium, ~'before', ~'left'); // Medium and wider
+//.u-offset(@prefixLarge, ~'before', ~'left'); // Large and wider
+//.u-offset(@prefixXLarge, ~'before', ~'left'); // X-Large and wider
+
+//.u-offset(~'', ~'after', ~'right'); // Base
+//.u-offset(@prefixXSmall, ~'after', ~'right'); // X-Small and wider
+//.u-offset(@prefixSmall, ~'after', ~'right'); // Small and wider
+//.u-offset(@prefixMedium, ~'after', ~'right'); // Medium and wider
+//.u-offset(@prefixLarge, ~'after', ~'right'); // Large and wider
+//.u-offset(@prefixXLarge, ~'after', ~'right'); // X-Large and wider
+
+/**
+ * Import all component browser styling for IE.
+ */
+@import "components/**/*.ie.less";

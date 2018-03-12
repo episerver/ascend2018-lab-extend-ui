@@ -1,0 +1,10 @@
+﻿@model EPiServer.Core.PageData
+@using EPiServer.Framework.Web.Mvc.Html
+@using EPiServer.Editor
+@using EPiServer.Find.Cms
+
+@{
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
+}
+
+<component is="@Model.PageTypeName" contentlink="@Model.ContentLink.ToString()" language="@Model.Language.Name" :modal-showing="showModal"></component>

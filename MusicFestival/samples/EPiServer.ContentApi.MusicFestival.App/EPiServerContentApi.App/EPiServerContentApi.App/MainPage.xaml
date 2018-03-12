@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:EPiServerContentApi.App"
+             x:Class="EPiServerContentApi.App.MainPage">
+
+    <WebView  x:Name="Browser" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" WidthRequest="1000" HeightRequest="1000" >
+
+    </WebView>
+
+</ContentPage>

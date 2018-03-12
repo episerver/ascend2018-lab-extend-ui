@@ -1,0 +1,84 @@
+/*#
+
+Component for the header section.
+
+Examples:
+
+<div>
+    <header class="Header">
+        <div class="Header-secondary">
+            <div class="Page-container">
+                <nav class="PageNav PageNav--horizontal PageNav--small Header-secondaryNav">
+                    <ul class="PageNav-list">
+                        <li class="PageNav-item">
+                            <a href="#" class="PageNav-itemLink">About</a>
+                        </li>
+                        <li class="PageNav-item">
+                            <a href="#" class="PageNav-itemLink">Contribute</a>
+                        </li>
+                        <li class="PageNav-item">
+                            <a href="#" class="PageNav-itemLink">About</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <div class="Header-primary">
+            <div class="Page-container Header-primaryContainer">
+                <div class="Header-logo">
+                    <a href="#"><img src="/assets/images/logo/nansen-encore.png" class="Header-logoImage" width="160" /></a>
+                </div>
+
+                <nav class="PageNav PageNav--horizontal PageNav--large Header-primaryNav">
+                    <ul class="PageNav-list">
+                        <li class="PageNav-item">
+                            <a href="#" class="PageNav-itemLink is-active">Frontend Docs</a>
+                        </li>
+                        <li class="PageNav-item">
+                            <a href="#" class="PageNav-itemLink">Backend Docs</a>
+                        </li>
+                        <li class="PageNav-item">
+                            <a href="#" class="PageNav-itemLink">About Encore</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+</div>
+
+*/
+
+@import "../../common/variables.less";
+
+@Header-bg: #f4f4f4;
+@Header-border: darken(#f4f4f4, 5%);
+
+.Header {
+    border-bottom: 1px solid @Header-border;
+    width: 100%;
+}
+
+.Header-secondary {
+    padding: 0 @spaceMedium;
+    background: @Header-bg;
+    text-align: right;
+}
+
+.Header-primary {
+    padding: (@spaceLarge - .5em) @spaceMedium;
+}
+
+.Header-primaryContainer {
+    display: flex;
+    align-items: center;
+}
+
+.Header-logo {
+}
+
+.Header-primaryNav {
+    flex: 1 1 auto;
+    text-align: right;
+}

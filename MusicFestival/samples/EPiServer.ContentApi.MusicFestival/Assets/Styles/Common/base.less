@@ -1,0 +1,278 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Barlow:400,700|Ubuntu:400,700');
+
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: @colorWhite;
+    color: @colorText;
+    font-family: @fontFamilySecondary;
+    height: 100%;
+    font-weight: 300;
+    line-height: 1.3em;
+    font-size: 100%;
+}
+
+// NOTE: heading stylings can be found in Heading.less
+p {
+    font-size: 16px;
+
+    @media @bpMedium {
+        font-size: 20px;
+    }
+
+    margin-bottom: 1em;
+    line-height: 1.3em;
+}
+
+ol, ul, dl {
+    // margin-top: 0;
+    margin-bottom: 1em;
+}
+
+// reset margin-bottom on nested combinations of "ol ul"
+ol, ul {
+    & & {
+        margin-bottom: 0;
+    }
+}
+
+main{
+    margin: 5em auto;
+    background-image: url('/Assets/Images/wave.svg');
+    background-repeat: no-repeat;
+    background-position: right top;
+    max-width: 1200px;
+}
+
+.Page {
+    background-color: @backgroundColor;
+    background-image: @backgroundGradient;
+}
+
+.Page-container {
+    max-width: 1200px;
+    padding: 1em;
+}
+
+.PageHeader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    transform: translateX(-50%);
+    left: 50%;
+}
+
+.PageHeader-title {
+    margin: 0 .5em;
+    font-family: @fontFamilySecondary;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.FlexItem--extend {
+    flex-grow: 1;
+}
+
+.logo {
+    width: 55px;
+    height: 50px;
+
+    svg {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/**
+ * Links
+ */
+
+a {
+    color: @colorLink;
+    text-decoration: none;
+    transition: color 250ms ease-out;
+}
+
+a:hover {
+    color: @colorLinkHover;
+    text-decoration: underline;
+}
+
+/**
+ * Elements
+ */
+
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: @spaceMedium 0;
+    padding: 0;
+}
+
+figure {
+    margin: 0;
+}
+
+/**
+ * Tables
+ */
+
+table {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 1em;
+    border-collapse: collapse;
+
+    th, td {
+        padding: .5em;
+        vertical-align: top;
+        text-align: left;
+    }
+
+    th {
+        border-bottom: 2px solid lighten(#ccc, 5%);
+    }
+}
+
+/**
+ * Form
+ */
+
+input[type=text],
+input[type=password],
+input[type=number],
+input[type=search],
+input[type=tel],
+input[type=email],
+input[type=url],
+textarea {
+    font-family: inherit;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    padding: @spaceXSmall;
+    box-sizing: border-box;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:disabled {
+        background: lighten(#ccc, 10%);
+        opacity: 0.8;
+        color: @colorTextLight;
+        cursor: not-allowed;
+    }
+}
+
+textarea {
+    height: 5.8em; // three rows of text
+    resize: vertical;
+}
+
+label {
+    display: inline-block;
+}
+
+/**
+ * Form Validation
+ */
+
+/* stylelint-disable selector-class-pattern  */
+
+.field-validation-valid,
+.field-validation-error {
+    display: block;
+    margin-top: @spaceSmall;
+    font-size: @textSizeSmall;
+}
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border-color: #ff9191 !important;
+}
+
+/* stylelint-enable */
+
+/**
+ * Print styles.
+ * Inlined to avoid required HTTP connection.
+ */
+
+@media print {
+    @page {
+        margin: 0.5cm;
+    }
+
+    *,
+    *:before,
+    *:after {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: http://www.sanbeiji.com/archives/953 */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    /*
+     * Printing Tables:
+     * http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+
+    // remove Episerver bar from print
+    #epi-quickNavigator { /* stylelint-disable-line */
+        display: none !important;
+    }
+}

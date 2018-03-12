@@ -1,0 +1,9 @@
+﻿@model EPiServer.ContentApi.MusicFestival.Features.Landing.ViewModels.LandingPageViewModel
+@using EPiServer.Framework.Web.Mvc.Html
+@using EPiServer.Editor
+
+@{
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
+}
+
+<landing-page contentlink="@Model.CurrentPage.ContentLink.ToString()" language="@Model.CurrentPage.Language.Name"></landing-page>

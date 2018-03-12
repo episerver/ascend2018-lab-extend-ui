@@ -1,0 +1,63 @@
+﻿@model ContentActivityViewModel
+
+@{ Layout = null; }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>title</title>
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            margin-top: 10px;
+        }
+        th, td {
+            border-bottom: 1px solid #c6c9cc;
+            padding: 4px 25px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>Content activities</h2>
+        @if (Model.Activities.Any())
+        {
+            <table>
+                <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Type</th>
+                    <th>Forced?</th>
+                    <th>By</th>
+                    <th>Comment</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                @foreach (var activity in Model.Activities)
+                {
+                    <tr>
+                        <th>@activity.Created.ToString("yyyy-MM-dd HH:mm:ss")</th>
+                        <td>@activity.ActionType</td>
+                        <td>@if (activity.Forced) { <span>Yes</span> }</td>
+                        <td>@activity.ChangedBy</td>
+                        <td>@if (!string.IsNullOrWhiteSpace(activity.Comment)) { <span>@activity.Comment</span> }</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <div>No activity to show</div>
+        }
+    </div>
+</body>
+</html>

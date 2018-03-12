@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{AB68A530-B9B8-4B92-A8D1-BC6221FFD3D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPiServer.ContentApi.MusicFestival.Site", "samples\EPiServer.ContentApi.MusicFestival\EPiServer.ContentApi.MusicFestival.Site.csproj", "{92C1F4EC-FD97-4D27-8393-D0B115196A37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPiServer.ContentApi.Sample.Commerce.Manager", "samples\EPiServer.ContentApi.Sample.Commerce.Manager\EPiServer.ContentApi.Sample.Commerce.Manager.csproj", "{3DD52DD7-4744-42D1-AE9F-34D441C020B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPiServer.ContentApi.Sample.Commerce.Shared", "samples\EPiServer.ContentApi.Sample.Commerce.Shared\EPiServer.ContentApi.Sample.Commerce.Shared.csproj", "{341C8E14-4EAE-4946-9841-45F9818265A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPiServer.ContentApi.MusicFestival.Content", "samples\EPiServer.ContentApi.MusicFestival.Content\EPiServer.ContentApi.MusicFestival.Content.csproj", "{37CC3F70-35CB-4F1F-8253-F0EAD7976C9A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CA|Any CPU = CA|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{92C1F4EC-FD97-4D27-8393-D0B115196A37}.CA|Any CPU.ActiveCfg = Release|Any CPU
+		{92C1F4EC-FD97-4D27-8393-D0B115196A37}.CA|Any CPU.Build.0 = Release|Any CPU
+		{92C1F4EC-FD97-4D27-8393-D0B115196A37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92C1F4EC-FD97-4D27-8393-D0B115196A37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92C1F4EC-FD97-4D27-8393-D0B115196A37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92C1F4EC-FD97-4D27-8393-D0B115196A37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DD52DD7-4744-42D1-AE9F-34D441C020B8}.CA|Any CPU.ActiveCfg = CA|Any CPU
+		{3DD52DD7-4744-42D1-AE9F-34D441C020B8}.CA|Any CPU.Build.0 = CA|Any CPU
+		{3DD52DD7-4744-42D1-AE9F-34D441C020B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DD52DD7-4744-42D1-AE9F-34D441C020B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DD52DD7-4744-42D1-AE9F-34D441C020B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DD52DD7-4744-42D1-AE9F-34D441C020B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{341C8E14-4EAE-4946-9841-45F9818265A8}.CA|Any CPU.ActiveCfg = CA|Any CPU
+		{341C8E14-4EAE-4946-9841-45F9818265A8}.CA|Any CPU.Build.0 = CA|Any CPU
+		{341C8E14-4EAE-4946-9841-45F9818265A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{341C8E14-4EAE-4946-9841-45F9818265A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{341C8E14-4EAE-4946-9841-45F9818265A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{341C8E14-4EAE-4946-9841-45F9818265A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37CC3F70-35CB-4F1F-8253-F0EAD7976C9A}.CA|Any CPU.ActiveCfg = Release|Any CPU
+		{37CC3F70-35CB-4F1F-8253-F0EAD7976C9A}.CA|Any CPU.Build.0 = Release|Any CPU
+		{37CC3F70-35CB-4F1F-8253-F0EAD7976C9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37CC3F70-35CB-4F1F-8253-F0EAD7976C9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37CC3F70-35CB-4F1F-8253-F0EAD7976C9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37CC3F70-35CB-4F1F-8253-F0EAD7976C9A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{92C1F4EC-FD97-4D27-8393-D0B115196A37} = {AB68A530-B9B8-4B92-A8D1-BC6221FFD3D0}
+		{3DD52DD7-4744-42D1-AE9F-34D441C020B8} = {AB68A530-B9B8-4B92-A8D1-BC6221FFD3D0}
+		{341C8E14-4EAE-4946-9841-45F9818265A8} = {AB68A530-B9B8-4B92-A8D1-BC6221FFD3D0}
+		{37CC3F70-35CB-4F1F-8253-F0EAD7976C9A} = {AB68A530-B9B8-4B92-A8D1-BC6221FFD3D0}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {09D7AFCA-C728-4484-AEF3-3EE7AAD271B9}
+	EndGlobalSection
+EndGlobal

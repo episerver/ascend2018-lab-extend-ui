@@ -1,0 +1,9 @@
+﻿@model EPiServer.ContentApi.MusicFestival.Models.Preview.BlockEditPageViewModel
+@using EPiServer.Framework.Web.Mvc.Html
+@using EPiServer.Editor
+
+@{
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
+}
+
+<Preview contentlink="@Model.PreviewBlock.PreviewContent.ContentLink" language="@Model.CurrentPage.Language.Name"></Preview>

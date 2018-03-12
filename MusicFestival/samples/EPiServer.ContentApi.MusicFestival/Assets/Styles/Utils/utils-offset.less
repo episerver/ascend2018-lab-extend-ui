@@ -1,0 +1,161 @@
+﻿@import (reference) "../common/variables.less";
+
+// NOTE: You need to enable the specific classes you want by removing uncomment the row. This is to keep the file size down.
+
+/* 
+ * Offset Before 
+ * .u-xx-before1of2 
+ */
+
+//.u-offset(~'', ~'before', ~'left'); // Base
+//.u-before(@prefixXSmall, @bpXSmall); // X-Small and wider
+//.u-before(@prefixSmall, @bpSmall); // Small and wider
+//.u-before(@prefixMedium, @bpMedium); // Medium and wider
+//.u-before(@prefixLarge, @bpLarge); // Large and wider
+//.u-before(@prefixXLarge, @bpXLarge); // X-Large and wider
+
+/* 
+ * Offset After
+ * .u-xx-after1of2 
+ */
+
+//.u-offset(~'', ~'after', ~'right'); // Base and wider
+//.u-after(@prefixXSmall, @bpXSmall); // X-Small and wider
+//.u-after(@prefixSmall, @bpSmall); // Small and wider
+//.u-after(@prefixMedium, @bpMedium); // Medium and wider
+//.u-after(@prefixLarge, @bpLarge); // Large and wider
+//.u-after(@prefixXLarge, @bpXLarge); // X-Large and wider
+
+.u-offset(@prefix: ~"", @direction: ~"before", @marginDirection: ~"left") {
+    // Specify the proportional offset before or after an object.
+    // Intentional redundancy build into each set of unit classes.
+    // Supports: 2, 3, 4, 5, 6, 8, 10, 12 section
+    
+    // Example of generated CSS:
+    // .u-sm-size1of2 {}
+    // .u-sm-before1of2 {}
+    // .u-sm-after1of2 {}
+    
+    .u-@{prefix}@{direction}1of12 {
+        margin-@{marginDirection}: (100% * 1 / 12) !important;
+    }
+
+    .u-@{prefix}@{direction}1of10 {
+        margin-@{marginDirection}: 10% !important;
+    }
+
+    .u-@{prefix}@{direction}1of8 {
+        margin-@{marginDirection}: 12.5% !important;
+    }
+
+    .u-@{prefix}@{direction}1of6,
+    .u-@{prefix}@{direction}2of12 {
+        margin-@{marginDirection}: (100% * 1 / 6) !important;
+    }
+
+    .u-@{prefix}@{direction}1of5,
+    .u-@{prefix}@{direction}2of10 {
+        margin-@{marginDirection}: 20% !important;
+    }
+
+    .u-@{prefix}@{direction}1of4,
+    .u-@{prefix}@{direction}2of8,
+    .u-@{prefix}@{direction}3of12 {
+        margin-@{marginDirection}: 25% !important;
+    }
+
+    .u-@{prefix}@{direction}3of10 {
+        margin-@{marginDirection}: 30% !important;
+    }
+
+    .u-@{prefix}@{direction}1of3,
+    .u-@{prefix}@{direction}2of6,
+    .u-@{prefix}@{direction}4of12 {
+        margin-@{marginDirection}: (100% * 1 / 3) !important;
+    }
+
+    .u-@{prefix}@{direction}3of8 {
+        margin-@{marginDirection}: 37.5% !important;
+    }
+
+    .u-@{prefix}@{direction}2of5,
+    .u-@{prefix}@{direction}4of10 {
+        margin-@{marginDirection}: 40% !important;
+    }
+
+    .u-@{prefix}@{direction}5of12 {
+        margin-@{marginDirection}: (100% * 5 / 12) !important;
+    }
+
+    .u-@{prefix}@{direction}1of2,
+    .u-@{prefix}@{direction}2of4,
+    .u-@{prefix}@{direction}3of6,
+    .u-@{prefix}@{direction}4of8,
+    .u-@{prefix}@{direction}5of10,
+    .u-@{prefix}@{direction}6of12 {
+        margin-@{marginDirection}: 50% !important;
+    }
+
+    .u-@{prefix}@{direction}7of12 {
+        margin-@{marginDirection}: (100% * 7 / 12) !important;
+    }
+
+    .u-@{prefix}@{direction}3of5,
+    .u-@{prefix}@{direction}6of10 {
+        margin-@{marginDirection}: 60% !important;
+    }
+
+    .u-@{prefix}@{direction}5of8 {
+        margin-@{marginDirection}: 62.5% !important;
+    }
+
+    .u-@{prefix}@{direction}2of3,
+    .u-@{prefix}@{direction}4of6,
+    .u-@{prefix}@{direction}8of12 {
+        margin-@{marginDirection}: (100% * 2 / 3) !important;
+    }
+
+    .u-@{prefix}@{direction}7of10 {
+        margin-@{marginDirection}: 70% !important;
+    }
+
+    .u-@{prefix}@{direction}3of4,
+    .u-@{prefix}@{direction}6of8,
+    .u-@{prefix}@{direction}9of12 {
+        margin-@{marginDirection}: 75% !important;
+    }
+
+    .u-@{prefix}@{direction}4of5,
+    .u-@{prefix}@{direction}8of10 {
+        margin-@{marginDirection}: 80% !important;
+    }
+
+    .u-@{prefix}@{direction}5of6,
+    .u-@{prefix}@{direction}10of12 {
+        margin-@{marginDirection}: (100% * 5 / 6) !important;
+    }
+
+    .u-@{prefix}@{direction}7of8 {
+        margin-@{marginDirection}: 87.5% !important;
+    }
+
+    .u-@{prefix}@{direction}9of10 {
+        margin-@{marginDirection}: 90% !important;
+    }
+
+    .u-@{prefix}@{direction}11of12 {
+        margin-@{marginDirection}: (100% * 11 / 12) !important;
+    }
+}
+
+.u-before(@prefix: ~"", @breakpoint) {
+    @media @breakpoint {
+        .u-offset(@prefix);
+    }
+}
+
+.u-after(@prefix: ~"", @breakpoint) {
+    @media @breakpoint {
+        .u-offset(@prefix, ~"after", ~"right");
+    }
+}

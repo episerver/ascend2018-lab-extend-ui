@@ -1,0 +1,3 @@
+@model string
+
+@Html.Raw(Markdig.Markdown.ToHtml(Model ?? string.Empty))

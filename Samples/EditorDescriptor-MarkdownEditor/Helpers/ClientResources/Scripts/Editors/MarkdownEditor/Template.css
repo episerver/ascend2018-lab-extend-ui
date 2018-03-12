@@ -1,0 +1,8 @@
+﻿.markdown-editor {
+    width: 480px;
+    font-family: Verdana, Arial;
+}
+
+.CodeMirror, .CodeMirror-scroll {
+    min-height: 200px; /* To make editor height static (i.e. prevent auto-growth), set 'height' to the desired height */
+}

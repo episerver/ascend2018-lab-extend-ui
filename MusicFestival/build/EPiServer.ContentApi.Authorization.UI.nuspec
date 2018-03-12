@@ -1,0 +1,37 @@
+﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>EPiServer.ContentApi.Authorization.UI</id>
+    <version>$version$</version>
+    <title>EPiServer.ContentApi.Authorization.UI</title>
+    <authors>Episerver</authors>
+    <owners>Episerver</owners>
+    <licenseUrl>http://www.episerver.com/eula/</licenseUrl>
+    <projectUrl>http://www.episerver.com/e-commerce/</projectUrl>
+    <iconUrl>http://www.episerver.com/Framework/Styles/Images/Products/Integration.png</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <summary>EPiServer Content Api Beta</summary>
+    <copyright>Copyright Episerver2018</copyright>
+    <tags>EPiServer Content Api Beta</tags>
+    <description>EPiServer Content Api Beta</description>
+    <dependencies>
+      <dependency id="Microsoft.Owin.Security.OAuth" version="[3.1.0,4)" />
+      <dependency id="EPiServer.CMS.AspNet" version="[11.3.2,12)" />
+      <dependency id="EPiServer.CMS.UI.AspNetIdentity" version="[11.2.3,12)" />
+      <dependency id="EPiServer.Find.Cms" version="[12.7.1,13)" />
+      <dependency id="Microsoft.AspNet.OData" version="[6.0.0,7)" />
+      <dependency id="Microsoft.AspNet.WebApi.Cors" version="[5.2.3,6)" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\src\EPiServer.ContentApi.Authorization.UI\bin\$configuration$\EPiServer.ContentApi.dll" target="lib\net461\" />
+    <file src="..\src\EPiServer.ContentApi.Authorization.UI\bin\$configuration$\EPiServer.ContentApi.Core.dll" target="lib\net461\" />
+    <file src="..\src\EPiServer.ContentApi.Authorization.UI\bin\$configuration$\EPiServer.ContentApi.Authorization.dll" target="lib\net461\" />
+    <file src="..\src\EPiServer.ContentApi.Authorization.UI\bin\$configuration$\EPiServer.ContentApi.Authorization.UI.dll" target="lib\net461\" />
+    <file src="..\src\EPiServer.ContentApi.Authorization.UI\bin\$configuration$\EPiServer.ContentApi.Search.dll" target="lib\net461\" />
+    <file src="EPiServer.ContentApi.Authorization.UI.zip" target="content\modules\_protected\EPiServer.ContentApi.Authorization.UI\" />
+	  <file src="..\src\EPiServer.ContentApi.Authorization.UI\web.config.install.xdt" target="content" />
+    <file src="..\src\EPiServer.ContentApi.Authorization.UI\web.config.uninstall.xdt" target="content" />
+    <file src="..\src\EPiServer.ContentApi.Authorization.UI\lang\EPiServer.ContentApi.Authorization.UI_en.xml" target="content\lang\EPiServer.ContentApi.Authorization.UI_en.xml" />
+  </files>
+</package>

@@ -1,0 +1,129 @@
+﻿/*! suit-utils-text v0.3.0 | MIT License | github.com/suitcss */
+
+/**
+ * Word breaking
+ *
+ * Break strings when their length exceeds the width of their container.
+ */
+
+.u-textBreak {
+    word-wrap: break-word !important;
+    word-break: break-all !important;
+}
+
+/**
+ * Horizontal text alignment
+ */
+
+.u-textCenter {
+    text-align: center !important;
+}
+
+.u-textLeft {
+    text-align: left !important;
+}
+
+.u-textRight {
+    text-align: right !important;
+}
+
+/**
+ * Inherit the ancestor's text color.
+ */
+
+.u-textInheritColor {
+    color: inherit !important;
+}
+
+.u-textPlaceholder {
+    color: #9c9c9c;
+}
+
+/**
+ * Prevent whitespace wrapping
+ */
+
+.u-textNoWrap {
+    white-space: nowrap !important;
+}
+
+.u-textWrap {
+    white-space: normal !important;
+}
+
+/**
+ * Text truncation
+ *
+ * Prevent text from wrapping onto multiple lines, and truncate with an
+ * ellipsis.
+ *
+ * 1. Ensure that the node has a maximum width after which truncation can
+ *    occur.
+ * 2. Fix for IE 8/9 if `word-wrap: break-word` is in effect on ancestor
+ *    nodes.
+ */
+
+.u-textTruncate {
+    max-width: 100%; /* 1 */
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    word-wrap: normal !important; /* 2 */
+}
+
+
+.u-textLight {
+    opacity: 0.5;
+}
+
+.u-textXSmall {
+    font-size: 0.75em !important; // 14px
+}
+
+
+.u-textSmall {
+    font-size: 0.875em !important; // 14px
+}
+
+.u-textLarge {
+    font-size: 1.063em !important;  // 17px
+}
+
+.u-textLarger {
+    font-size: 1.250em !important; // 20px
+}
+
+.u-textXLarge {
+    font-size: 1.8em !important;
+}
+
+.u-textLightWeight {
+    font-weight: 300 !important;
+}
+.u-textNormalWeight {
+    font-weight: 300 !important;
+}
+.u-textBoldWeight {
+    font-weight: 600 !important;
+}
+
+.u-textExtraMargin {
+    margin-top: .8em !important;
+    margin-bottom: .8em !important;
+}
+
+.u-textWideMargin {
+    margin: 3.2em 0 2.2em 0 !important;
+}
+
+.u-textNormalLetterSpacing {
+    letter-spacing: 0 !important;
+}
+
+.u-textUppercase {
+    text-transform: uppercase;
+}
+
+.u-textOrange {
+    color: #FE5000 !important;
+}

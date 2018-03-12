@@ -1,0 +1,293 @@
+﻿@import "./_mixins.less";
+
+/* breakpoint test divs */
+#cMobile, #cTablet{position:absolute;top:0;left:0;width:1px;height:1px;background:transparent;z-index:9999;display:none;}
+#cMobile{
+    display: block;
+    @media @bpMedium {
+        display: none;
+    }
+}
+#cTablet{
+    display: none;
+    @media @bpMedium {
+        display: block;
+    }
+    @media @bpLarge {
+        display: none;
+    }
+}
+
+/* Layout
+   ========================================================================== */
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    //text-rendering: optimizeLegibility; // causes a bug in Chrome for Android where buttons gets word break
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    color: @colorWhite;
+}
+
+body{
+    font: 100%/1.5 @fontBody;
+    font-weight: 400;
+    margin:0;
+    background-color: @backgroundColor;
+    color: @colorWhite;
+}
+
+::selection, ::-moz-selection {
+    background: rgba(236, 64, 122, 0.24);
+    text-shadow: none;
+}
+
+/* Elements
+   ========================================================================== */
+
+img {
+    max-width: 100%;
+    height:auto;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px dashed #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+address { font-style: normal; }
+
+table {
+    width: 100%;
+}
+
+table th {
+    border-bottom: 1px solid #eee;
+    color: #666;
+    font-size: 0.8em;
+    text-align: left;
+}
+table th, table td {
+    padding: .5em .7em;
+    padding-left: 0.2em;
+    vertical-align: top;
+}
+
+blockquote, .pullquote{
+    font-family:@fontHeading;
+    font-size: 50px;
+    text-transform:uppercase;
+    text-align:center;
+    font-weight:300;
+    line-height:1;
+    width:90%;
+    max-width:1008px;
+    border-left:none;padding-left:0;margin:80px auto 50px;
+    @media @bpMedium{ font-size: 115px; } // tablet and up
+}
+
+
+
+/* Form
+   ========================================================================== */
+
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=number],
+input[type=url],
+input.gsc-input[type=text],
+select
+{
+    border: 2px solid #ccc;
+    padding: .6em 1.2em;
+    font-size: 1em;
+    max-width: 100%;
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 3px 0 @colorBlue;
+    }
+}
+input[type=search] {
+    border: 1px solid #ccc;
+    padding: .6em 1.2em;
+    font-size: 1em;
+    border-radius: 2em;
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 3px 0 @colorBlue;
+    }
+}
+select {
+	padding: .5em 1.6em .55em .9em;
+}
+textarea {
+    padding: .5em .5em;
+    font-size: 1em;
+    border: 1px solid #ccc;
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 3px 0 @colorBlue;
+    }
+}
+
+/*fieldset {
+    border: 0;
+}
+legend {
+    text-align: right;
+}*/
+label {
+    margin-bottom:0.5em;
+}
+
+/* Validation */
+
+.field-validation-valid.Status {
+    display: none;
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+
+@media print {
+    @page {
+        margin: 0.5cm;
+    }
+
+    * {
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #aaa;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    #epi-quickNavigator {
+        display: none !important;
+    }
+}
+
+.gutter{
+    padding-left:20px;
+    padding-right:20px;
+}
+.gutter--left{
+    padding-left: 20px;
+}
+
+input[type=text], input[type=email], input[type=password]{
+    color: @colorWhite;
+    width: 100%;
+    border:0;
+    height: 40px;
+    font:12px @fontSubHeading;
+    background:rgba(255,255,255,.12);
+    border-radius:20px;
+    padding:0 20px;
+    display:block;
+    margin-bottom:10px;
+    &::placeholder{
+        color: @colorWhite;
+        text-align:center;
+        text-transform: uppercase;
+    }
+
+    &.search{
+        height: 24px;
+    }
+}
+
+.buttons{
+    margin: 20px;
+    border:1px solid @colorWhite;
+    border-radius: 20px;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    overflow:hidden;
+    button{
+        width:50%;
+        position:relative;
+        border:none;
+        background:none;
+        font: 12px/26px @fontSubHeading;
+        text-transform: uppercase;
+        border-radius:0;
+        &:focus{outline:0;background:transparent;}
+        &::before{
+            content:'';
+            position:absolute;
+            top: 0;
+            left: 0;
+            width:1px;
+            height:100%;
+            background:@colorWhite;
+        }
+        &:first-child::before{
+            display:none;
+        }
+        &.active{background:rgba(216,216,216,.12);}
+    }
+
+    &.is--alternative{
+        margin:20px 0 0;
+        border-radius:0;
+        border:0;
+        background:@colorBlue;
+        color:@colorTurqoise;
+
+        button{
+            &.active{background:@colorTurqoise;color:@colorBlue;}
+            &::before{display:none;}
+        }
+    }
+}

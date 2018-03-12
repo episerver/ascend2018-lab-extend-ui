@@ -1,0 +1,44 @@
+﻿@using EPiServer.Editor
+@using EPiServer.Framework.Web.Mvc.Html
+@model EPiServer.ContentApi.MusicFestival.Models.Pages.BasePage
+
+<!DOCTYPE html>
+<html @if (PageEditing.PageIsInEditMode) { <text>class="epi-editMode"</text> }>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="google-site-verification" content="I7kvxbaGQQqVfouCAWpyKJoY4Mc3gzi1iofV17JjQOo" />
+    <link href="~/Assets/bundled/main.bundle.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="Page" id="App">
+        <div class="Page-container PageHeader">
+            <div class="LogoContainer">
+                <div class="logo">
+                    <svg><use xlink:href="#logo"></use></svg>
+                </div>
+            </div>
+            <div class="FlexItem--extend">
+                <p class="PageHeader-title">music festival</p>
+            </div>
+            <button id="show-modal" v-on:click="showModal = true">Buy Tickets Now</button>
+        </div>
+        @RenderBody()
+        <modal v-if="showModal" v-on:close="showModal = false">
+            <h3 slot="header">Buy Tickets Now</h3>
+            <div slot="body">
+@* Doesn't work :O               <p>@Html.PropertyFor(m => m.BuyTicketBlock.Message)</p>*@
+                <p data-epi-property-name="BuyTicketBlock.Message">@Model.BuyTicketBlock.Message</p>
+                <input type="email" />
+            </div>
+        </modal>
+    </div>
+
+    @Html.RequiredClientResources("Footer")
+    @Html.RenderEPiServerQuickNavigator()
+    <script src="~/Assets/bundled/main.bundle.js"></script>
+    <script src="~/Assets/scripts/observer.js" defer></script>
+
+    @RenderSection("FooterScripts", false)
+</body>
+</html>

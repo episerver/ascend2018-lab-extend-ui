@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<languages>
+  <language name="English" id="en">
+    <weathermodel>
+      <defaultlocation>Fallback Location</defaultlocation>
+      <UseVisitorsLocation>
+        Use visitors location
+      </UseVisitorsLocation>
+    </weathermodel>
+
+    <enums>
+      <Ascend2018>
+        <Business>
+          <Criteria>
+            <weathermodel>
+              <defaultlocation>Fallback Location</defaultlocation>
+            </weathermodel>
+            <weathertypes>
+              <thunderstorms>Thunderstorms</thunderstorms>
+              <drizzle>Drizzle</drizzle>
+              <rain>Rain</rain>
+              <snow>Snow</snow>
+              <clear>Clear</clear>
+              <unknown>Unknown</unknown>
+              <extreme>Extreme</extreme>
+              <windy>Windy</windy>
+              <clouds>Clouds</clouds>
+            </weathertypes>
+          </Criteria>
+        </Business>
+      </Ascend2018>
+    </enums>
+  </language>
+</languages>

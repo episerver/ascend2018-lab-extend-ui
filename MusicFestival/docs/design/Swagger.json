@@ -1,0 +1,574 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Episerver Content Api"
+  },
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Content Api",
+      "description": "Load IContent via IContentLoader"
+    },
+    {
+      "name": "Content Search Api",
+      "description": "Search for IContent via Episerver Find"
+    },
+    {
+      "name": "Site Definition Api",
+      "description": "Access site information, languages, and content roots"
+    }
+  ],
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/episerver/search/content": {
+      "get": {
+        "tags": [
+          "Content Search Api"
+        ],
+        "summary": "Search for content",
+        "description": "",
+        "operationId": "contentSearch",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "filter",
+            "type": "string",
+            "in": "query",
+            "description": "Specify a filter string to be applied to the search. Filter strings utilize OData v4 filter syntax"
+          },
+          {
+            "name": "orderby",
+            "type": "string",
+            "in": "query",
+            "description": "Specify an orderby string to be applied to the search. Orderby strings utilize OData v4 sort syntax"
+          },
+          {
+            "name": "query",
+            "type": "string",
+            "in": "query",
+            "description": "Free text search to filter content. Supports query string syntax for searching in individual fields"
+          },
+          {
+            "name": "skip",
+            "type": "integer",
+            "in": "query",
+            "description": "Specify number of items to skip in returned search results (used for pagination)"
+          },
+          {
+            "name": "top",
+            "type": "integer",
+            "in": "query",
+            "description": "Specify number of items to return in search results (used for pagination)"
+          },
+          {
+            "name": "personalize",
+            "type": "boolean",
+            "in": "query",
+            "description": "Determines if returned content will be personalized (via the Visitor Group system) when returned. By default, content will be fetched in the context of an anonymous user."
+          },
+          {
+            "name": "expand",
+            "type": "string",
+            "in": "query",
+            "description": "Comma-separated list of reference properties (Content References, Content Areas) which should have their content fetched in the response. Passing \"*\" will load content in all reference properties in the return."
+          },
+          {
+            "name": "Accept-Language",
+            "type": "string",
+            "in": "header",
+            "description": "Determines in which languages content should be retrieved. Example - en-US,sv"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SearchResponse"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/episerver/content": {
+      "get": {
+        "tags": [
+          "Content Api"
+        ],
+        "summary": "Retrieve multiple content items",
+        "description": "",
+        "operationId": "getContents",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "references",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "in": "query",
+            "description": "List of content reference to load content"
+          },
+          {
+            "name": "guids",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "in": "query",
+            "description": "List of content guids to use to load content"
+          },
+          {
+            "name": "expand",
+            "type": "string",
+            "in": "query",
+            "description": "Comma-separated list of reference properties (Content References, Content Areas) which should have their content fetched in the response. Passing \"*\" will load content in all reference properties in the returned response."
+          },
+          {
+            "name": "Accept-Language",
+            "type": "string",
+            "in": "header",
+            "description": "Determines in which language the content should be retrieved. Example - en-US"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ExpandedContentApiModel"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/episerver/content/{referenceORguid}": {
+      "get": {
+        "tags": [
+          "Content Api"
+        ],
+        "summary": "Retrieve content by content reference or content guid",
+        "description": "",
+        "operationId": "getContent",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "referenceORguid",
+            "in": "path",
+            "description": "Content Reference or Guid to be loaded. Supports all reference formats (including work and provider IDs)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "type": "string",
+            "in": "query",
+            "description": "Comma-separated list of reference properties (Content References, Content Areas) which should have their content fetched in the response. Passing \"*\" will load content in all reference properties in the return."
+          },
+          {
+            "name": "Accept-Language",
+            "type": "string",
+            "in": "header",
+            "description": "Determines in which language the content should be retrieved. Example - en-US"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ExpandedContentApiModel"
+            }
+          }
+        }
+      }
+    },
+    "/api/episerver/content/{reference}/children": {
+      "get": {
+        "tags": [
+          "Content Api"
+        ],
+        "summary": "Retrieve child content of a content reference",
+        "description": "",
+        "operationId": "getChildren",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "reference",
+            "in": "path",
+            "description": "Content Reference for which to retrieve child content. Supports all reference formats (including work and provider IDs)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "type": "string",
+            "in": "query",
+            "description": "Comma-separated list of reference properties (Content References, Content Areas) which should have their content fetched in the response. Passing \"*\" will load content in all reference properties in the return."
+          },
+          {
+            "name": "Accept-Language",
+            "type": "string",
+            "in": "header",
+            "description": "Determines in which language the content should be retrieved. Example - en-US"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ExpandedContentApiModel"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/episerver/content/{reference}/ancestors": {
+      "get": {
+        "tags": [
+          "Content Api"
+        ],
+        "summary": "Retrieve ancestor content for a content reference",
+        "description": "",
+        "operationId": "getAncestors",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "reference",
+            "in": "path",
+            "description": "Content Reference for which to retrieve ancestor content. Supports all reference formats (including work and provider IDs)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "type": "string",
+            "in": "query",
+            "description": "Comma-separated list of reference properties (Content References, Content Areas) which should have their content fetched in the response. Passing \"*\" will load content in all reference properties in the return."
+          },
+          {
+            "name": "Accept-Language",
+            "type": "string",
+            "in": "header",
+            "description": "Determines in which language the content should be retrieved. Example - en-US"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ExpandedContentApiModel"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/episerver/site": {
+      "get": {
+        "tags": [
+          "Site Definition Api"
+        ],
+        "summary": "Retrieve a list of sites in the system and their associated properties. By default, only the current site will be returned, unless the multi-site configuration flag is enabled in Configuration",
+        "description": "",
+        "operationId": "getSites",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Site"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ContentApiModel": {
+      "type": "object",
+      "properties": {
+        "ContentLink": {
+          "$ref": "#/definitions/ContentModelReference"
+        },
+        "Name": {
+          "type": "string",
+          "example": "Start Page"
+        },
+        "Language": {
+          "$ref": "#/definitions/LanguageModel"
+        },
+        "ExistingLanguages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LanguageModel"
+          }
+        },
+        "MasterLanguage": {
+          "$ref": "#/definitions/LanguageModel"
+        },
+        "ContentType": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "example": [
+            "Page",
+            "StartPage"
+          ]
+        },
+        "ParentLink": {
+          "$ref": "#/definitions/ContentModelReference"
+        },
+        "RouteSegment": {
+          "type": "string",
+          "example": "content-page"
+        },
+        "Url": {
+          "type": "string",
+          "example": "http://episerver.local/content-page/"
+        },
+        "Changed": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "StartPublish": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "StopPublish": {
+          "type": "string",
+          "format": "date-time",
+          "example": null
+        },
+        "Saved": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Status": {
+          "type": "string",
+          "example": "Published"
+        },
+        "Title": {
+          "type": "object",
+          "properties": {
+            "Value": {
+              "type": "string",
+              "example": "This is the Hello World Page"
+            },
+            "PropertyDataType": {
+              "type": "string",
+              "example": "PropertyString"
+            }
+          }
+        },
+        "MainBody": {
+          "type": "object",
+          "properties": {
+            "Value": {
+              "type": "string",
+              "example": "<p>Hello, World!"
+            },
+            "PropertyDataType": {
+              "type": "string",
+              "example": "PropertyXhtmlString"
+            }
+          }
+        },
+        "ReferencedContent": {
+          "type": "object",
+          "properties": {
+            "Value": {
+              "$ref": "#/definitions/ContentModelReference"
+            },
+            "PropertyDataType": {
+              "type": "string",
+              "example": "PropertyContentReference"
+            }
+          }
+        }
+      }
+    },
+    "ExpandedContentApiModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ContentApiModel"
+        },
+        {
+          "properties": {
+            "ReferencedContent": {
+              "type": "object",
+              "properties": {
+                "Value": {
+                  "$ref": "#/definitions/ContentModelReference"
+                },
+                "ExpandedValue": {
+                  "$ref": "#/definitions/ContentApiModel"
+                },
+                "PropertyDataType": {
+                  "type": "string",
+                  "example": "PropertyContentReference"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "ContentModelReference": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "integer",
+          "format": "int32",
+          "example": 234
+        },
+        "WorkId": {
+          "type": "number",
+          "format": "int32"
+        },
+        "Guid": {
+          "type": "string",
+          "format": "guid",
+          "example": "2775f9ba-8a2b-46c8-b279-19764318cb48"
+        },
+        "ProviderName": {
+          "type": "string",
+          "format": "guid"
+        }
+      }
+    },
+    "SearchResponse": {
+      "type": "object",
+      "properties": {
+        "TotalMatching": {
+          "type": "number"
+        },
+        "Results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ExpandedContentApiModel"
+          }
+        }
+      }
+    },
+    "Site": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "type": "string",
+          "example": "Quicksilver"
+        },
+        "Id": {
+          "type": "string",
+          "format": "guid",
+          "example": "2775f9ba-8a2b-46c8-b279-19764318cb48"
+        },
+        "ContentRoots": {
+          "type": "object",
+          "properties": {
+            "ContentAssetsRoot": {
+              "$ref": "#/definitions/ContentModelReference"
+            },
+            "GlobalAssetsRoot": {
+              "$ref": "#/definitions/ContentModelReference"
+            },
+            "RootPage": {
+              "$ref": "#/definitions/ContentModelReference"
+            },
+            "WasteBasket": {
+              "$ref": "#/definitions/ContentModelReference"
+            },
+            "StartPage": {
+              "$ref": "#/definitions/ContentModelReference"
+            }
+          }
+        },
+        "Languages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SiteDefinitionLanguageModel"
+          }
+        }
+      }
+    },
+    "LanguageModel": {
+      "type": "object",
+      "properties": {
+        "DisplayName": {
+          "type": "string",
+          "example": "English"
+        },
+        "Name": {
+          "type": "string",
+          "example": "en"
+        }
+      }
+    },
+    "SiteDefinitionLanguageModel": {
+      "type": "object",
+      "properties": {
+        "DisplayName": {
+          "type": "string",
+          "example": "English"
+        },
+        "Name": {
+          "type": "string",
+          "example": "en"
+        },
+        "IsMasterLanguage": {
+          "type": "boolean",
+          "example": true
+        }
+      }
+    }
+  }
+}

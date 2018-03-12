@@ -1,0 +1,95 @@
+@import (reference) "../../common/variables.less";
+
+/*#
+
+<h1 class="Heading Heading--h1">Heading 1</h1>
+<h2 class="Heading Heading--h2">Heading 2</h2>
+<h3 class="Heading Heading--h3">Heading 3</h3>
+<h4 class="Heading Heading--h4">Heading 4</h4>
+<h5 class="Heading Heading--h5">Heading 5</h5>
+<h6 class="Heading Heading--h6">Heading 6</h6>
+
+*/
+
+@Heading-color: @colorText;
+@Heading-size1: 80px;
+@Heading-size2: 80px;
+@Heading-size3: 48px;
+@Heading-size4: 32px;
+@Heading-size5: 22px;
+@Heading-size6: 14px;
+
+.Heading {
+    display: block;
+    margin-top: 0;
+    margin-bottom: .5em;
+    color: @Heading-color;
+    font-weight: 700;
+    line-height: 1em;
+    text-transform: lowercase;
+    font-family: @fontFamilySecondary;
+    a:hover & {
+        color: @colorLinkHover;
+    }
+}
+
+.Heading--h1, h1 {
+    &:extend(.Heading all);
+    font-size: unit((@Heading-size1*.65)/@baseFontSize, em);
+
+    @media @bpMedium {
+        font-size: unit(@Heading-size1/@baseFontSize, em);
+    }
+}
+
+.Heading--h2, h2 {
+    &:extend(.Heading all);
+    font-size: unit((@Heading-size2*.65)/@baseFontSize, em);
+
+    @media @bpMedium {
+        font-size: unit(@Heading-size2/@baseFontSize, em);
+    }
+}
+
+.Heading--h3, h3 {
+    &:extend(.Heading all);
+    font-size: unit((@Heading-size3*.75)/@baseFontSize, em);
+
+    @media @bpMedium {
+        font-size: unit(@Heading-size3/@baseFontSize, em);
+    }
+}
+
+.Heading--h4, h4 {
+    &:extend(.Heading all);
+    font-weight: 300;
+    font-size: unit((@Heading-size4*.75)/@baseFontSize, em);
+
+    @media @bpMedium {
+        font-size: unit(@Heading-size4/@baseFontSize, em);
+    }
+}
+
+.Heading--h5, h5, .Heading--h6, h6 {
+    &:extend(.Heading all);
+    font-weight: 700;
+    letter-spacing: 2.2px;
+    font-family: @fontFamilyPrimary;
+    text-transform: uppercase;
+    font-size: unit((@Heading-size5*.75)/@baseFontSize, em);
+
+    @media @bpMedium {
+        font-size: unit(@Heading-size5/@baseFontSize, em);
+    }
+}
+
+.Heading--h6, h6 {
+    &:extend(.Heading all);
+    text-transform: uppercase;
+    margin-bottom: 0;
+    font-size: unit((@Heading-size6*.75)/@baseFontSize, em);
+
+    @media @bpMedium {
+        font-size: unit(@Heading-size6/@baseFontSize, em);
+    }
+}

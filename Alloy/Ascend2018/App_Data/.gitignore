@@ -1,0 +1,3 @@
+# Include SQL Server files
+!*.mdf
+!*.ldf

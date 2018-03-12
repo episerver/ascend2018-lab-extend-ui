@@ -1,0 +1,176 @@
+@import (reference) "../common/variables.less";
+
+/*
+    Change the default spacing between and inside components.
+
+    Example HTML:
+
+    <div class="u-marginTlg u-marginBmd"> 			// large margin-top and medium margin-bottom
+        <h1 class="u-marginTz">Hello World</h1>		// zero margin-top
+    </div>
+
+    Directions:
+        A = all
+        T = top
+        B = bottom
+        R = right
+        L = left
+        H = horizontal (right and left)
+        V = vertical (top and bottom)
+
+    Sizes:
+        z  = zero
+        xsm = xsmall
+        sm  = small
+        md  = medium
+        lg  = large
+        xlg = xlarge
+*/
+/* stylelint-disable rule-non-nested-empty-line-before */
+
+/**
+ * Margins, .u-margin{direction}{size}
+ */
+
+// zero margins
+.u-marginAz { margin: 0 !important; }
+.u-marginTz { margin-top: 0 !important; }
+.u-marginBz { margin-bottom: 0 !important; }
+.u-marginRz { margin-right: 0 !important; }
+.u-marginLz { margin-left: 0 !important; }
+.u-marginHz { margin-left: 0 !important; margin-right: 0 !important; }
+.u-marginVz { margin-top: 0 !important; margin-bottom: 0 !important; }
+
+.u-space(~"marginA", margin);           // .u-marginA{size}
+.u-spaceHorizontal(~"marginH", margin); // .u-marginH{size}
+.u-spaceVertical(~"marginV", margin);   // .u-marginV{size}
+.u-space(~"marginT", margin-top);       // .u-marginT{size}
+.u-space(~"marginB", margin-bottom);    // .u-marginB{size}
+.u-space(~"marginR", margin-right);     // .u-marginR{size}
+.u-space(~"marginL", margin-left);      // .u-marginL{size}
+
+/**
+ * Paddings, .u-padding{direction}{size}
+ */
+
+// zero paddings
+.u-paddingAz { padding: 0 !important; }
+.u-paddingTz { padding-top: 0 !important; }
+.u-paddingBz { padding-bottom: 0 !important; }
+.u-paddingRz { padding-right: 0 !important; }
+.u-paddingLz { padding-left: 0 !important; }
+.u-paddingHz { padding-left: 0 !important; padding-right: 0 !important; }
+.u-paddingVz { padding-top: 0 !important; padding-bottom: 0 !important; }
+
+.u-space(~"paddingA", padding);             // .u-paddingA{size}
+.u-spaceHorizontal(~"paddingH", padding);   // .u-paddingH{size}
+.u-spaceVertical(~"paddingV", padding);     // .u-paddingV{size}
+.u-space(~"paddingT", padding-top);         // .u-paddingT{size}
+.u-space(~"paddingB", padding-bottom);      // .u-paddingB{size}
+.u-space(~"paddingR", padding-right);       // .u-paddingR{size}
+.u-space(~"paddingL", padding-left);        // .u-paddingL{size}
+
+/**
+ * Collapsing margins
+ * Negative margins to pull content beyond paddings, using e.g. margin-top: -1em;
+ */
+.u-spaceHorizontal(~"pullH", margin, -1); // horizontal (left & right), .u-pullH{size}
+.u-spaceVertical(~"pullV", margin, -1);   // vertical (top & bottom),   .u-pullV{size}
+
+// pull top
+.u-pullTxsm { margin-top: -@spaceXSmall; }
+.u-pullTsm { margin-top: -@spaceSmall; }
+.u-pullTmd,
+.u-pullT { margin-top: -@spaceMedium; }
+.u-pullTlg { margin-top: -@spaceLarge; }
+.u-pullTxlg { margin-top: -@spaceXLarge; }
+
+/**
+ * Mixins used to generate classes.
+ */
+.u-space(@className, @property: margin, @multiplier: 1) {
+    .u-@{className}xsm {
+        @{property}: @spaceXSmall * @multiplier !important;
+    }
+    .u-@{className}sm {
+        @{property}: @spaceSmall * @multiplier !important;
+    }
+    .u-@{className}md,
+    .u-@{className} {
+        @{property}: @spaceMedium * @multiplier !important;
+    }
+    .u-@{className}lg {
+        @{property}: @spaceLarge * @multiplier !important;
+    }
+    .u-@{className}xlg {
+        @{property}: @spaceXLarge * @multiplier !important;
+    }
+}
+
+.u-spaceHorizontal(@className, @property: margin, @multiplier: 1) {
+    .u-@{className}xsm {
+        @{property}-left: @spaceXSmall * @multiplier !important;
+        @{property}-right: @spaceXSmall * @multiplier !important;
+    }
+    .u-@{className}sm {
+        @{property}-left: @spaceSmall * @multiplier !important;
+        @{property}-right: @spaceSmall * @multiplier !important;
+    }
+    .u-@{className}md,
+    .u-@{className} {
+        @{property}-left: @spaceMedium * @multiplier !important;
+        @{property}-right: @spaceMedium * @multiplier !important;
+    }
+    .u-@{className}lg {
+        @{property}-left: @spaceLarge * @multiplier !important;
+        @{property}-right: @spaceLarge * @multiplier !important;
+    }
+    .u-@{className}xlg {
+        @{property}-left: @spaceXLarge * @multiplier !important;
+        @{property}-right: @spaceXLarge * @multiplier !important;
+    }
+}
+
+.u-spaceVertical(@className, @property: margin, @multiplier: 1) {
+    .u-@{className}xsm {
+        @{property}-top: @spaceXSmall * @multiplier !important;
+        @{property}-bottom: @spaceXSmall * @multiplier !important;
+    }
+    .u-@{className}sm {
+        @{property}-top: @spaceSmall * @multiplier !important;
+        @{property}-bottom: @spaceSmall * @multiplier !important;
+    }
+    .u-@{className}md,
+    .u-@{className} {
+        @{property}-top: @spaceMedium * @multiplier !important;
+        @{property}-bottom: @spaceMedium * @multiplier !important;
+    }
+    .u-@{className}lg {
+        @{property}-top: @spaceLarge * @multiplier !important;
+        @{property}-bottom: @spaceLarge * @multiplier !important;
+    }
+    .u-@{className}xlg {
+        @{property}-top: @spaceXLarge * @multiplier !important;
+        @{property}-bottom: @spaceXLarge * @multiplier !important;
+    }
+}
+/* stylelint-enable */
+
+/*Breakpoint specific margins*/
+@media @bpMedium{
+    .u-md-paddingHlg {
+        .u-paddingHlg;
+    }
+    .u-md-paddingAlg {
+        .u-paddingAlg;
+    }
+    .u-md-marginTxlg{
+        .u-marginTxlg;
+    }
+}
+
+@media @bpMediumMax{
+    .u-xsm-paddingAmd {
+        .u-paddingAmd;
+    }
+}

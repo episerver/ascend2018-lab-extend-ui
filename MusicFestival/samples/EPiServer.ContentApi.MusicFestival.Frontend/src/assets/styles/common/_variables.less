@@ -1,0 +1,47 @@
+﻿@basePath: '/Assets';
+// Fonts
+@fontHeading: 'ubuntu-bold';
+@fontSubHeading: 'barlow-bold';
+@fontBody: 'barlow';
+@fontNav: @fontHeading;
+
+// Colors
+@colorBlack:#000;
+@colorWhite:#fff;
+@colorBlue:#1A237E;
+@colorTurqoise:#41FFF5;
+
+// backgrounds
+@backgroundColor: rgb(26,35,126); // default background color
+@backgroundGradient: linear-gradient(to bottom, rgba(255,0,0,0) 0%, rgba(255,0,0,.35) 100%);
+
+// menu
+@menuTransition: left .4s ease-in-out;
+
+//iPhone 5
+@widthXSmall: 300px;
+
+@widthSmall: 500px;
+
+//< 640 == mobile view
+//768 == medium tablet view
+//> 768 == desktop view
+@widthMedium: 740px;
+@widthLarge: 769px;
+
+@widthXLarge: 1308px;
+
+@bpXSmall: ~"only screen and (min-width: @{widthXSmall}), print";
+@bpSmall: ~"only screen and (min-width: @{widthSmall}), print";
+@bpMedium: ~"only screen and (min-width: @{widthMedium}), print";
+@bpLarge: ~"only screen and (min-width: @{widthLarge}), print";
+@bpXLarge: ~"only screen and (min-width: @{widthXLarge}), print";
+
+@prefixXSmall: ~"xsm-";
+@prefixSmall: ~"sm-";
+@prefixMedium: ~"md-";
+@prefixLarge: ~"lg-";
+@prefixXLarge: ~"xlg-";
+
+// Grid
+@gutterSize: 24px; // needs to be in pixels
