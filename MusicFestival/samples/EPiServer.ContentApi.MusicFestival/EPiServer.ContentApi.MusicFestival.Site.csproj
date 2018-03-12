@@ -367,7 +367,9 @@
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ItemGroup>
     <Compile Include="Controllers\PreviewController.cs" />
-    <Compile Include="Features\AppPreview\AppPreviewComponent.cs" />
+    <Compile Include="Features\AppPreview\AppPreviewComponent.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Features\ContentApi\LowercaseLongStringPropertyModel.cs" />
     <Compile Include="Features\ContentApi\LowercaseLongStringPropertyModelHandler.cs" />
     <Compile Include="Models\Blocks\BuyTicketBlock.cs" />

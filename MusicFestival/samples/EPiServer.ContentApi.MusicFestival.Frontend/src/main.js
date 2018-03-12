@@ -24,12 +24,12 @@ new Vue({
   }
 })
 
-// window.addEventListener('message', function (event) {
-//   let eventArgs = event.data
-//   if (eventArgs && eventArgs.id === 'beta/contentSaved') {
-//     EventBus.$emit('contentSaved', eventArgs.data)
-//   }
-// }, false)
+window.addEventListener('message', function (event) {
+  let eventArgs = event.data
+  if (eventArgs && eventArgs.id === 'beta/contentSaved') {
+    EventBus.$emit('contentSaved', eventArgs.data)
+  }
+}, false)
 
 // setup event that emits after every route change.
 router.afterEach((to, from) => {

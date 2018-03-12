@@ -35,6 +35,11 @@ define([
             // summary:
             //      Redirects to the content approval log view.
 
+            // This sets the view to our log, and the 'true' parameter sets it to sticky-view. 
+            topic.publish('/epi/shell/action/changeview', 'approvalLog', null, null, true);
+
+            // This changes the context to the content that the user selected in the navigation tree.
+            topic.publish('/epi/shell/context/request', { uri: 'epi.cms.contentdata:///' + this.model.contentLink });
         }
     });
 });

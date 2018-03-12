@@ -13,11 +13,12 @@ define([
     // Commands
     ApprovalLogCommand
 ) {
-
     return declare([_Module], {
 
         initialize: function () {
             this.inherited(arguments);
+
+            navigationTreePluginArea.add(ApprovalLogCommand);
         }
     });
 });

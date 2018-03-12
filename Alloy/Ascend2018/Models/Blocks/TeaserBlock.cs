@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Ascend2018.Business.EditorDescriptors;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
@@ -25,7 +26,7 @@ namespace Ascend2018.Models.Blocks
         [Display(
             GroupName = SystemTabNames.Content,
             Order = 2)]
-        [UIHint(UIHint.Textarea)]
+        [UIHint(MarkdownEditorDescriptor.UIHint)]
         public virtual string Text { get; set; }
 
         [CultureSpecific]

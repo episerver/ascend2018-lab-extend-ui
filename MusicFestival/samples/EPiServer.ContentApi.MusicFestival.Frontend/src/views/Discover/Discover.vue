@@ -37,7 +37,7 @@ export default {
   created () {
     this.updateData()
     EventBus.$on('updateDataDiscover', this.updateData)
-    // EventBus.$on('contentSaved', this.updateData)
+    EventBus.$on('contentSaved', this.updateData)
   },
   destroyed () {
     EventBus.$off('updateDataDiscover')
@@ -45,9 +45,9 @@ export default {
   methods: {
     updateData (data) {
       let id = '8'
-      // if (data && data.contentLink.startsWith(id)) {
-      //   id = data.contentLink
-      // }
+      if (data && data.contentLink.startsWith(id)) {
+        id = data.contentLink
+      }
       api.getContent(id, 'HeroContentArea,MainContant', response => {
         this.artists = response.data.MainContant.ExpandedValue
         this.tempHero = response.data.HeroContentArea.ExpandedValue[0]
