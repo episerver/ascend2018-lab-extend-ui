@@ -2,3 +2,18 @@
 @using EPiServer.Web.Mvc.Html
 
 @model Ascend2018.Models.Blocks.OfficesBlock
+
+<div @Html.EditAttributes(m => m.OurAddresses)>
+  @if (Model.OurAddresses != null)
+  {
+      foreach (var o in Model.OurAddresses)
+      {
+      <p>
+          @o.Line1<br/>
+          @o.Line2<br/>
+          @o.City<br/>
+          @o.Zipcode
+      </p>
+      }
+  }
+</div>
